@@ -28,54 +28,6 @@
   <script src="js/demo/city.js"></script>
   <script src="js/api.js"></script>
 
-  <script>
-    var APIKey = "58944daba347098d464f8de4da9b4020";
-    var cityName = "";
-    var queryURL = "https://api.openweathermap.org/data/2.5/forecast?" +
-  "q="+cityName+",US&units=imperial&appid=" + APIKey;
-    var dates = [];
-    var temps = [];
-    var humid = [];
-    var windy = [];
-    var cloudy = [];
-    
-    var dowarray = [];
-    
-    var d = new Date();
-    var weekday = ["Sunday", "Monday", "Tuesday", "Wednesday","Thursday", "Friday", "Saturday"];
-      //var currDay = d.getDay();
-      var offset = d.getDay();
-      for (var i = 0; i < weekday.length; i++) {
-        var dow = (i + offset) % weekday.length;
-        dowarray.push(weekday[dow]);
-        if (dowarray.length == 5) {
-          break;
-        }
-      }
-      console.log(dowarray);
-
-        $.ajax({
-          url: queryURL,
-          method: "GET"
-        })
-          .then(function (response) {
-            //console.log(queryURL);
-            var i = 0;
-            while (i < 40) {
-              var date = response.list[i].dt_txt;
-              var temp = response.list[i].main.temp;
-              var humidity = response.list[i].main.humidity;
-              var wind = response.list[i].wind.speed;
-              var clouds = response.list[i].clouds.all;
-              dates.push(date);
-              temps.push(temp);
-              humid.push(humidity);
-              windy.push(wind);
-              cloudy.push(clouds);
-              i = i + 8;
-            }
-          });
-  </script>
 
 </head>
 
