@@ -2,8 +2,7 @@ var APIKey = "58944daba347098d464f8de4da9b4020";
 var cityName = "";
 
 // Here we are building the URL we need to query the database
-var queryURL = "https://api.openweathermap.org/data/2.5/forecast?" +
-  "q="+cityName+",US&units=imperial&appid=" + APIKey;
+var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q="+cityName+",US&units=imperial&appid=" + APIKey;
 
 // Here we run our AJAX call to the OpenWeatherMap API
 $.ajax({
